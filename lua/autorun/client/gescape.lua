@@ -73,7 +73,7 @@ function escapemenu:show()
         resume.DoClick = function()
 
             hook.Remove( "HUDPaint", "OriginCam" )
-            surface.PlaySound( "gescape/button.mp3" )
+            surface.PlaySound( "buttons/blip1.wav" )
             bg:Remove()
 
         end
@@ -98,7 +98,7 @@ function escapemenu:show()
             hook.Remove( "HUDPaint", "OriginCam" )
             Boxy:Remove()
 
-            surface.PlaySound( "gescape/button.mp3" )
+            surface.PlaySound( "buttons/blip1.wav" )
 
             Boxy = vgui.Create( "DFrame", bg )
             Boxy:SetPos( bg:GetWide() / 6.5, bg:GetTall() / 4.9 )
@@ -148,7 +148,7 @@ function escapemenu:show()
         hook.Remove( "HUDPaint", "OriginCam" )
         Boxy:Remove()
 
-        surface.PlaySound( "gescape/button.mp3" )
+        surface.PlaySound( "buttons/blip1.wav" )
 
         Boxy = vgui.Create( "DPanel", bg )
             Boxy:SetPos( bg:GetWide() / 6.5, bg:GetTall() / 4.9 )
@@ -191,7 +191,7 @@ function escapemenu:show()
             Boxy:Remove()
             hook.Remove( "HUDPaint", "OriginCam" )
             
-            surface.PlaySound( "gescape/button.mp3" )
+            surface.PlaySound( "buttons/blip1.wav" )
 
             Boxy = vgui.Create( "DFrame", bg )
             Boxy:SetPos( bg:GetWide() / 6.5, bg:GetTall() / 4.9 )
@@ -238,7 +238,7 @@ function escapemenu:show()
         news:SetVisible( true )
         news.DoClick = function()
 
-        surface.PlaySound("gescape/button.mp3")
+        surface.PlaySound("buttons/blip1.wav")
 
         Boxy:Remove()
 
@@ -272,6 +272,234 @@ function escapemenu:show()
             draw.DrawText(config.NNews, "Mai", news:GetWide() / 2.1, news:GetTall() / 5, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER)
         end
     end
+
+if config.Servers == true then
+    local servers = vgui.Create( "DButton", bg )
+        servers:SetSize( bg:GetWide() / 11, bg:GetTall() / 24.1 )
+        servers:SetText( "" )
+        servers:SetPos( bg:GetWide() / 1.574, bg:GetTall() / 6.5 )
+        servers:SetVisible( true )
+        servers.DoClick = function()
+
+            Boxy:Remove()
+            hook.Remove( "HUDPaint", "OriginCam" )
+
+            surface.PlaySound( "buttons/blip1.wav" )
+
+            Boxy = vgui.Create( "DFrame", bg )
+            Boxy:SetPos( bg:GetWide() / 6.5, bg:GetTall() / 4.9 )
+            Boxy:SetTitle( "" )
+            Boxy:SetDraggable( false )
+            Boxy:DockMargin( 5, 5, 5, 5 )
+            Boxy:ShowCloseButton( false )
+            Boxy:SetSize( bg:GetWide() / 1.454, bg:GetTall() / 1.5 )
+            Boxy.Paint = function()
+                    draw.RoundedBox( 0, 0, 0, Boxy:GetWide(), Boxy:GetTall(), Color( 0, 0, 0, 235 ))
+            end
+
+            // Start of Server One.
+
+            S1 = vgui.Create( "DButton", Boxy )
+            S1:SetPos( Boxy:GetWide() / 1000, Boxy:GetTall() / 500 )
+            S1:SetSize( bg:GetWide() / 3.54, bg:GetTall() / 23.5 )
+            S1:SetText( "" )
+            S1:SetVisible( true )
+            S1.Paint = function()
+            if S1:IsHovered() == true then
+                draw.RoundedBox(0, 0, 0, S1:GetWide(), S1:GetTall(), Color( 0, 0, 0, 230 ))
+                draw.DrawText("Join our DarkRP Server!", "Mai", S1:GetWide() / 2.1, S1:GetTall() / 5, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER)
+            else
+                draw.RoundedBox(0, 0, 0, S1:GetWide(), S1:GetTall(), config.PColor)
+                draw.DrawText("Join our DarkRP Server!", "Mai", S1:GetWide() / 2.1, S1:GetTall() / 5, Color( 0, 0, 0, 255 ), TEXT_ALIGN_CENTER)
+            end
+            S1.DoClick = function()
+
+
+                SB = vgui.Create( "DFrame", Boxy )
+                SB:SetPos( Boxy:GetWide() / 2.3, Boxy:GetTall() / 500 )
+                SB:SetTitle( "" )
+                SB:SetDraggable( false )
+                SB:ShowCloseButton( false )
+                SB:SetSize( Boxy:GetWide(), Boxy:GetTall() / 3.7 )
+                SB.Paint = function()
+                    draw.RoundedBox( 0, 0, 0, Boxy:GetWide(), Boxy:GetTall(), Color( 0, 0, 0, 0 ))
+                end
+
+            SInfo = vgui.Create( "DButton", SB )
+            SInfo:SetPos( 0, 0 )
+            SInfo:SetSize( SB:GetWide() / 1.5, SB:GetTall() / 2.6 )
+            SInfo:SetText("")
+            SInfo:SetFont("Mai")
+            SInfo.DoClick = function()
+                LocalPlayer():ConCommand( config.IPOne )
+            end
+            SInfo.Paint = function()
+            if SInfo:IsHovered() == true then
+                draw.RoundedBox( 0, 0, 0, SInfo:GetWide(), SInfo:GetTall(), Color( 0, 0, 0, 230 ))
+                draw.DrawText("Click here to join!", "Heu", SInfo:GetWide() / 2.4, SInfo:GetTall() / 6, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER)
+            else
+                draw.RoundedBox( 0, 0, 0, SInfo:GetWide(), SInfo:GetTall(), config.PColor)
+                draw.DrawText("Click here to join!", "Heu", SInfo:GetWide() / 2.4, SInfo:GetTall() / 6, Color( 0, 0, 0, 255 ), TEXT_ALIGN_CENTER)
+            end
+        end
+    end
+end
+
+        // End of Server One.
+        // Start of Server Two.
+
+if config.PortalTwo == true then
+            S2 = vgui.Create( "DButton", Boxy )
+            S2:SetPos( Boxy:GetWide() / 1000, Boxy:GetTall() / 12 )
+            S2:SetSize( bg:GetWide() / 3.54, bg:GetTall() / 23.5 )
+            S2:SetText( "" )
+            S2:SetVisible( true )
+            S2.Paint = function()
+            if S2:IsHovered() == true then
+                draw.RoundedBox(0, 0, 0, S2:GetWide(), S2:GetTall(), Color( 0, 0, 0, 230 ))
+                draw.DrawText("Join our Surf Server!", "Mai", S2:GetWide() / 2.1, S2:GetTall() / 5, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER)
+            else
+                draw.RoundedBox(0, 0, 0, S2:GetWide(), S2:GetTall(), config.PColor)
+                draw.DrawText("Join our Surf Server!", "Mai", S2:GetWide() / 2.1, S2:GetTall() / 5, Color( 0, 0, 0, 255 ), TEXT_ALIGN_CENTER)
+            end
+            S2.DoClick = function()
+
+                SB = vgui.Create( "DFrame", Boxy )
+                SB:SetPos( Boxy:GetWide() / 2.3, Boxy:GetTall() / 500 )
+                SB:SetTitle( "" )
+                SB:SetDraggable( false )
+                SB:ShowCloseButton( false )
+                SB:SetSize( Boxy:GetWide(), Boxy:GetTall() / 3.7 )
+                SB.Paint = function()
+                    draw.RoundedBox( 0, 0, 0, Boxy:GetWide(), Boxy:GetTall(), Color( 0, 0, 0, 0 ))
+                end
+
+            SInfo = vgui.Create( "DButton", SB )
+            SInfo:SetPos( 0, 0 )
+            SInfo:SetSize( SB:GetWide() / 1.5, SB:GetTall() / 2.6 )
+            SInfo:SetText("")
+            SInfo:SetFont("Main")
+            SInfo.DoClick = function()
+                LocalPlayer():ConCommand( config.IPTwo )
+            end
+            SInfo.Paint = function()
+            if SInfo:IsHovered() == true then
+                draw.RoundedBox( 0, 0, 0, SInfo:GetWide(), SInfo:GetTall(), Color( 0, 0, 0, 230 ))
+                draw.DrawText("Click here to join!", "Heu", SInfo:GetWide() / 2.4, SInfo:GetTall() / 6, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER)
+            else
+                draw.RoundedBox( 0, 0, 0, SInfo:GetWide(), SInfo:GetTall(), config.PColor)
+                draw.DrawText("Click here to join!", "Heu", SInfo:GetWide() / 2.4, SInfo:GetTall() / 6, Color( 0, 0, 0, 255 ), TEXT_ALIGN_CENTER)
+            end
+            end
+        end
+    end
+end
+
+            // End of Server Two.
+            // Start of Server Three.
+
+if config.PortalThree == true then
+            S3 = vgui.Create( "DButton", Boxy )
+            S3:SetPos( Boxy:GetWide() / 1000, Boxy:GetTall() / 6 )
+            S3:SetSize( bg:GetWide() / 3.54, bg:GetTall() / 23.5 )
+            S3:SetText( "" )
+            S3:SetVisible( true )
+            S3.Paint = function()
+            if S3:IsHovered() == true then
+                draw.RoundedBox(0, 0, 0, S3:GetWide(), S3:GetTall(), Color( 0, 0, 0, 230 ))
+                draw.DrawText("Join our MiniGames Server!", "Mai", S3:GetWide() / 2.1, S3:GetTall() / 5, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER)
+            else
+                draw.RoundedBox(0, 0, 0, S3:GetWide(), S3:GetTall(), config.PColor)
+                draw.DrawText("Join our MiniGames Server!", "Mai", S3:GetWide() / 2.1, S3:GetTall() / 5, Color( 0, 0, 0, 255 ), TEXT_ALIGN_CENTER)
+            end
+            S3.DoClick = function()
+
+                SB = vgui.Create( "DFrame", Boxy )
+                SB:SetPos( Boxy:GetWide() / 2.3, Boxy:GetTall() / 500 )
+                SB:SetTitle( "" )
+                SB:SetDraggable( false )
+                SB:ShowCloseButton( false )
+                SB:SetSize( Boxy:GetWide(), Boxy:GetTall() / 3.7 )
+                SB.Paint = function()
+                    draw.RoundedBox( 0, 0, 0, Boxy:GetWide(), Boxy:GetTall(), Color( 0, 0, 0, 0 ))
+                end
+
+            SInfo = vgui.Create( "DButton", SB )
+            SInfo:SetPos( 0, 0 )
+            SInfo:SetSize( SB:GetWide() / 1.5, SB:GetTall() / 2.6 )
+            SInfo:SetText("")
+            SInfo:SetFont("Mai")
+            SInfo.DoClick = function()
+                LocalPlayer():ConCommand( config.IPThree )
+            end
+            SInfo.Paint = function()
+            if SInfo:IsHovered() == true then
+                draw.RoundedBox( 0, 0, 0, SInfo:GetWide(), SInfo:GetTall(), Color( 0, 0, 0, 230 ))
+                draw.DrawText("Click here to join!", "Heu", SInfo:GetWide() / 2.4, SInfo:GetTall() / 6, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER)
+            else
+                draw.RoundedBox( 0, 0, 0, SInfo:GetWide(), SInfo:GetTall(), config.PColor)
+                draw.DrawText("Click here to join!", "Heu", SInfo:GetWide() / 2.4, SInfo:GetTall() / 6, Color( 0, 0, 0, 255 ), TEXT_ALIGN_CENTER)
+            end
+            end
+        end
+    end
+end
+        end
+        servers.Paint = function()
+        if servers:IsHovered() == true then
+            draw.RoundedBox( 0, 0, 0, 200, 200, config.HoverBottom)
+            draw.RoundedBox( 0, 0, 0, 200, 10, config.HoverTop)
+            draw.DrawText("Servers!", "Mai", servers:GetWide() / 2.1, servers:GetTall() / 5, Color( 0, 0, 0, 255 ), TEXT_ALIGN_CENTER)
+            else
+            draw.RoundedBox( 0, 0, 0, 200, 200, config.MainColor)
+            draw.DrawText("Servers!", "Mai", servers:GetWide() / 2.1, servers:GetTall() / 5, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER)
+            end
+        end
+end
+
+if config.Servers == true then
+    local disconnect = vgui.Create( "DButton", bg )
+        disconnect:SetSize( bg:GetWide() / 11, bg:GetTall() / 24.1 )
+        disconnect:SetText( "" )
+        disconnect:SetPos( bg:GetWide() / 1.368, bg:GetTall() / 6.5 )
+        disconnect:SetVisible( true )
+        disconnect.DoClick = function()
+            surface.PlaySound( "buttons/blip1.wav" )
+            RunConsoleCommand( "disconnect" )
+        end
+        disconnect.Paint = function()
+        if disconnect:IsHovered() == true then
+            draw.RoundedBox( 0, 0, 0, 200, 200, config.HoverBottom)
+            draw.RoundedBox( 0, 0, 0, 200, 10, config.HoverTop)
+            draw.DrawText("Disconnect!", "Mai", disconnect:GetWide() / 2.1, disconnect:GetTall() / 5, Color( 0, 0, 0, 255 ), TEXT_ALIGN_CENTER)
+        else
+            draw.RoundedBox( 0, 0, 0, 200, 200, config.MainColor)
+            draw.DrawText("Disconnect!", "Mai", disconnect:GetWide() / 2.1, disconnect:GetTall() / 5, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER)
+        end
+    end
+end
+
+if config.Servers == false then
+    local disconnect = vgui.Create( "DButton", bg )
+        disconnect:SetSize( bg:GetWide() / 11, bg:GetTall() / 24.1 )
+        disconnect:SetText( "" )
+        disconnect:SetPos( bg:GetWide() / 1.574, bg:GetTall() / 6.5 )
+        disconnect:SetVisible( true )
+        disconnect.DoClick = function()
+            surface.PlaySound( "buttons/blip1.wav" )
+            RunConsoleCommand( "disconnect" )
+        end
+        disconnect.Paint = function()
+        if disconnect:IsHovered() == true then
+            draw.RoundedBox( 0, 0, 0, 200, 200, config.HoverBottom)
+            draw.RoundedBox( 0, 0, 0, 200, 10, config.HoverTop)
+            draw.DrawText("Disconnect!", "Mai", disconnect:GetWide() / 2.1, disconnect:GetTall() / 5, Color( 0, 0, 0, 255 ), TEXT_ALIGN_CENTER)
+        else
+            draw.RoundedBox( 0, 0, 0, 200, 200, config.MainColor)
+            draw.DrawText("Disconnect!", "Mai", disconnect:GetWide() / 2.1, disconnect:GetTall() / 5, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER)
+        end
+    end
+end
 
     local Avatar = vgui.Create( "AvatarImage", bg )
     Avatar:SetSize( bg:GetWide() / 30, bg:GetTall() / 17 )
