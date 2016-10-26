@@ -92,19 +92,3 @@ chicks!]]
 
 config.NNews = "News!"
 config.NewsT = [[Hello there, and welcome to our community, I really do hope you have a brilliant time here!]]
-
-// Servers options.
-
-config.Servers = true -- If you want the servers tab enabled.
-config.PortalTwo = true -- If you want a second server portal.
-config.PortalThree = true -- If you want a third server portal.
-
-config.IPOne = "connect 5.196.162.104:27015" -- Replace IP and keep connect.
-config.IPTwo = "connect 185.38.151.19:27015" -- Replace IP and keep connect.
-config.IPThree = "connect 5.196.162.104:27015" -- Replace IP and keep connect.
-
-config.HTMLO = [[<a href="http://www.gametracker.com/server_info/27015/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/27015/b_560_95_1.png" border="0" width="560" height="95" alt=""/></a>]]
-config.HTMLT = [[<a href="http://www.gametracker.com/server_info/27015/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/27015/b_560_95_1.png" border="0" width="560" height="95" alt=""/></a>]]
-config.HTMLTH = [[<a href="http://www.gametracker.com/server_info/27015/" target="_blank"><img src="http://cache.www.gametracker.com/server_info/27015/b_560_95_1.png" border="0" width="560" height="95" alt=""/></a>]]
-
-config.PColor =  Color( 158, 158, 158, 255 ) -- Button color of the Portals.
